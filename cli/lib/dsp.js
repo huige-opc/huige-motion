@@ -225,3 +225,86 @@ export function reverb(L, R, wet = 0.1, size = 1) {
   const r = run(R, [1139, 1211, 1300, 1379].map((d) => Math.round(d * s)), [579, 464].map((d) => Math.round(d * (RATE / 44100))));
   for (let i = 0; i < L.length; i++) { L[i] += l[i] * wet * 0.5; R[i] += r[i] * wet * 0.5; }
 }
+
+// ---------- time-varying filter (risers, sweeps) ----------
+// In-place radix-2 FFT over Float64Array pairs; n must be a power of two.
+function fft(re, im, inverse = false) {
+  const n = re.length;
+  for (let i = 1, j = 0; i < n; i++) {
+    let bit = n >> 1;
+    for (; j & bit; bit >>= 1) j ^= bit;
+    j ^= bit;
+    if (i < j) { let t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; }
+  }
+  for (let len = 2; len <= n; len <<= 1) {
+    const ang = ((inverse ? 2 : -2) * Math.PI) / len, wr = Math.cos(ang), wi = Math.sin(ang);
+    for (let i = 0; i < n; i += len) {
+      let cr = 1, ci = 0;
+      for (let j = 0; j < len / 2; j++) {
+        const a = i + j, b = a + len / 2;
+        const vr = re[b] * cr - im[b] * ci, vi = re[b] * ci + im[b] * cr;
+        re[b] = re[a] - vr; im[b] = im[a] - vi;
+        re[a] += vr; im[a] += vi;
+        const nr = cr * wr - ci * wi;
+        ci = cr * wi + ci * wr; cr = nr;
+      }
+    }
+  }
+  if (inverse) for (let i = 0; i < n; i++) { re[i] /= n; im[i] /= n; }
+}
+
+// Overlap-add filter with a response that can change every block.
+// `fn(freqs, tCentre)` returns one gain (number) or one gain per frequency bin; the
+// bin array is freqs[k] = k * sr / block. Short blocks track fast sweeps; 4096 is
+// the default. Applying the window once and dividing by the summed window keeps
+// the level flat; samples where that sum vanishes (the very first one) are silent.
+export function filt(x, fn, { block = 4096, sr = RATE } = {}) {
+  if (!fn) return x;
+  if ((block & (block - 1)) !== 0) throw new Error(`filt: block must be a power of two, got ${block}`);
+  const n = x.length, hop = block >> 1, half = block >> 1;
+  const win = new Float64Array(block);
+  for (let i = 0; i < block; i++) win[i] = 0.5 - 0.5 * Math.cos((TAU * i) / block);
+  const freqs = new Float64Array(half + 1);
+  for (let k = 0; k <= half; k++) freqs[k] = (k * sr) / block;
+  const out = new Float32Array(n), wsum = new Float32Array(n);
+  const re = new Float64Array(block), im = new Float64Array(block);
+  for (let start = 0; start < n; start += hop) {
+    re.fill(0); im.fill(0);
+    const end = Math.min(n, start + block);
+    for (let i = start; i < end; i++) re[i - start] = x[i] * win[i - start];
+    fft(re, im);
+    const gains = fn(freqs, (start + hop) / sr);
+    for (let k = 0; k <= half; k++) {
+      const g = typeof gains === 'number' ? gains : gains[k] ?? 0;
+      re[k] *= g; im[k] *= g;
+      if (k > 0 && k < half) { re[block - k] *= g; im[block - k] *= g; }
+    }
+    fft(re, im, true);
+    for (let i = start; i < end; i++) { out[i] += re[i - start]; wsum[i] += win[i - start]; }
+  }
+  for (let i = 0; i < n; i++) out[i] = wsum[i] > 2e-3 ? out[i] / wsum[i] : 0;
+  return out;
+}
+
+// A response works on one frequency or on the whole bin array (filt passes the array).
+const gainMap = (fn) => (f) => (typeof f === 'number' ? fn(f) : Float64Array.from(f, fn));
+export const lp = (cut, slope = 2) => gainMap((f) => 1 / (1 + (f / Math.max(cut, 20)) ** slope));
+export const hp = (cut, slope = 2) => gainMap((f) => (f / Math.max(cut, 20)) ** slope / (1 + (f / Math.max(cut, 20)) ** slope));
+export const bp = (lo, hi, slope = 2.6) => gainMap((f) => {
+  const a = Math.max(lo, 20), b = Math.max(hi, 20);
+  return ((f / a) ** slope / (1 + (f / a) ** slope)) / (1 + (f / b) ** slope);
+});
+
+// Slow tape pitch drift: read through a wandering position instead of at i.
+// `depth` is the drift in seconds (2.2 ms is a worn cassette), `rate` in Hz.
+export function tapeWow(x, { depth = 0.0022, rate = 0.7, sr = RATE } = {}) {
+  const n = x.length, d = depth * sr, out = new Float32Array(n), last = n - 1;
+  for (let i = 0; i < n; i++) {
+    const t = i / sr;
+    const mod = Math.sin(TAU * rate * t) + 0.4 * Math.sin(TAU * rate * 2.7 * t + 1.3);
+    const pos = Math.min(last, Math.max(0, i + mod * d));
+    const i0 = pos | 0, f = pos - i0;
+    out[i] = x[i0] * (1 - f) + x[Math.min(i0 + 1, last)] * f;
+  }
+  return out;
+}

@@ -117,6 +117,27 @@ Placing hits:
 - **Repeat with variation.** Four cards: four thuds panned left to right. Eight chips: eight pops climbing the scale (`note: i + 1`). A row of identical sounds sounds like a bug.
 - **Big moments get space.** Let the stamp, the end card or the punchline number have a beat where nothing else hits.
 
+## Synthesis recipes (custom sound code)
+
+The score and effects are built from `cli/lib/dsp.js`. Two tools there are worth reaching for by hand:
+
+**`filt(x, response, { block = 4096 })`** — overlap-add FFT filter whose response can change every block. `response(freqs, tCentre)` gets the bin frequencies and the block's centre time, and returns one gain or one gain per bin. Use it when a biquad cannot make the shape: a steep skirt, a band whose two edges move independently, a notch, or a whole mix opening up. `lp(cut, slope)`, `hp(cut, slope)` and `bp(lo, hi, slope)` return ready-made responses.
+
+```js
+import { bp, filt, noise, rng, tapeWow } from './dsp.js';
+
+// a riser: noise through a band that climbs into the drop, then fades out on the hit
+const dur = 2.4;
+const rise = filt(noise(dur, rng('rise')), (f, t) => {
+  const u = Math.min(1, t / dur);
+  return bp(300 * 20 ** u, 1200 * 8 ** u)(f);
+});
+```
+
+The block is the time resolution: 4096 (default) is smooth, 1024 tracks a fast sweep, smaller costs more. It must be a power of two. Output is the same length; the first sample is silent (the window sum is zero there), so fade the first few milliseconds when the sound starts at full level. For a single moving cutoff the per-sample `biquad(x, 'lp', (u) => …)` is cheaper and enough.
+
+**`tapeWow(x, { depth = 0.0022, rate = 0.7 })`** — slow pitch drift by reading the signal through a wandering position. 2.2 ms of depth makes a clean synth bed sound like it came off a cassette rather than out of a DAW; 1–4 ms is the useful range. Deterministic, same length, no state. Put it on a bus, not on every stem.
+
 ## Footage with its own audio
 
 A clip that carries sound (a demo, a screen recording, a person talking) is a third source beside the
