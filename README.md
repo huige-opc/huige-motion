@@ -16,10 +16,10 @@ npx skills add huige-opc/huige-motion
 
 ```sh
 git clone https://github.com/huige-opc/huige-motion.git
-ln -s "$PWD/huige-motion/skills/huige-motion" ~/.claude/skills/huige-motion
+ln -s "$PWD/huige-motion" ~/.claude/skills/huige-motion
 ```
 
-技能本体在 `skills/huige-motion/SKILL.md`；`bin/om` 会通过 `pwd -P` 找到仓库里的 CLI。
+技能本体是根目录的 `SKILL.md`；`bin/om` 会通过 `pwd -P` 找到仓库里的 CLI。
 
 ## 需要什么
 
@@ -41,7 +41,7 @@ om render my-film               # 导出到 my-film/out/
 ```
 
 常用命令：`om templates`、`om sound`、`om voice`、`om still`、`om qa`、`om export html`。
-完整流程见 [skills/huige-motion/SKILL.md](skills/huige-motion/SKILL.md)。
+完整流程见 [SKILL.md](SKILL.md)。
 
 ## 里面有什么
 

@@ -49,7 +49,7 @@ const HELP = `huige-motion ${VERSION} — motion graphics made by your coding ag
   om export html [dir] [--out folder] [--title …] [--desc …]   share page (player, Remix prompt, source.zip) for any static host
   om doctor                     check Node, FFmpeg and the renderer
 
-Docs: skills/huige-motion/SKILL.md`;
+Docs: SKILL.md`;
 
 function parse(argv) {
   const flags = {}, pos = [];

@@ -6,7 +6,7 @@ import { existsSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const LIBRARY = fileURLToPath(new URL('../../skills/huige-motion/references/library/languages/', import.meta.url));
+const LIBRARY = fileURLToPath(new URL('../../references/library/languages/', import.meta.url));
 const TODO = /\bTODO\b|\bTBD\b|待填|待补/;
 const asked = (body, re) => re.test(body || '');
 const value = (body, re) => {

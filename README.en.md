@@ -16,10 +16,10 @@ Or clone and link the nested skill into your agent's skills folder:
 
 ```sh
 git clone https://github.com/huige-opc/huige-motion.git
-ln -s "$PWD/huige-motion/skills/huige-motion" ~/.claude/skills/huige-motion
+ln -s "$PWD/huige-motion" ~/.claude/skills/huige-motion
 ```
 
-The skill itself is `skills/huige-motion/SKILL.md`; `bin/om` finds the CLI through `pwd -P`.
+The skill itself is the root `SKILL.md`; `bin/om` finds the CLI through `pwd -P`.
 
 ## Requirements
 
@@ -41,7 +41,7 @@ om render my-film               # export to my-film/out/
 ```
 
 Other commands: `om templates`, `om sound`, `om voice`, `om still`, `om qa`, `om export html`.
-The full workflow is in [skills/huige-motion/SKILL.md](skills/huige-motion/SKILL.md).
+The full workflow is in [SKILL.md](SKILL.md).
 
 ## What's inside
 

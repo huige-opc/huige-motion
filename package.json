@@ -5,7 +5,7 @@
   "type": "module",
   "bin": { "om": "cli/om.js", "huige-motion": "cli/om.js" },
   "engines": { "node": ">=22" },
-  "files": ["cli", "studio", "runtime", "templates", "fonts", "examples", "skills", "LICENSE", "THIRD_PARTY.md"],
+  "files": ["bin", "cli", "studio", "runtime", "templates", "fonts", "examples", "references", "SKILL.md", "LICENSE", "THIRD_PARTY.md"],
   "scripts": { "test": "node --test test/*.test.js" },
   "keywords": ["motion-graphics", "animation", "agent-skill", "claude-code", "codex", "video", "gsap", "launch-video"],
   "repository": { "type": "git", "url": "git+https://github.com/huige-opc/huige-motion.git" },

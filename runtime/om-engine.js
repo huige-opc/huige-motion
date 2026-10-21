@@ -3,7 +3,7 @@
 // references it; the studio and exported pages inject it the same way. One engine serves rendering,
 // screenshots and the preview (window.__omConfig.video === 'live', driven by runtime/om-player.js).
 //
-// What it provides, from the composition contract (skills/huige-motion/references/contract.md):
+// What it provides, from the composition contract (references/contract.md):
 //   window.__timelines           registry of paused GSAP timelines (created here if missing)
 //   OM.vars()                    the variables — defaults from <html data-composition-variables>, overridden by
 //                                window.__omVariables, typed as declared (window.__hyperframes.getVariables(): older alias)
