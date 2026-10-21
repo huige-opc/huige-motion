@@ -17,6 +17,7 @@ out/
 snapshots/
 node_modules/
 site/dist/
+.trash/
 
 # process materials, kept locally, not published
 legacy/
