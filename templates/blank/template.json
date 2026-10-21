@@ -1,0 +1,12 @@
+{
+  "title": "Blank",
+  "summary": "Title, a big number and an end card. The smallest project that follows the whole contract — start here for anything custom.",
+  "best_for": ["anything custom", "kinetic titles", "a starting point"],
+  "aspect": "16:9",
+  "copy": {
+    "runtime/clip/lib/util.js": "vendor/clip/lib/util.js",
+    "runtime/clip/lib/paint.js": "vendor/clip/lib/paint.js",
+    "runtime/clip/lib/print.js": "vendor/clip/lib/print.js",
+    "runtime/clip/lib/physical.js": "vendor/clip/lib/physical.js"
+  }
+}
