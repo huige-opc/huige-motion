@@ -1,6 +1,6 @@
 ---
 name: huige-motion
-description: "Motion graphics, launch videos and explainers as editable code. A director picks the motion language for your product; you point at frames to change them. 动画、发布片、解说视频，指着画面改。"
+description: "Motion graphics, launch videos and explainers as editable code — point at any frame to change it, rendered locally in Chrome. 用代码做动画、发布片、解说视频：选好运动语言，指着画面就能改，本机 Chrome 逐帧渲染。"
 ---
 
 # huige-motion
