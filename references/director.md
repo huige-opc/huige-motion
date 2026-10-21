@@ -125,7 +125,7 @@ If the directions share a drawn object (a mascot, a creature, a character, an em
 object first, alone, at full size, before the three frames: it must look like artwork, not an icon,
 because one weak object sinks all three directions. Living and organic things (animals, plants,
 people) are not hand-written geometric SVG: cut them from real material (public-domain prints,
-photos, the brand's own art) or use an art-direction skill when one is installed (huashu-art-motion).
+photos, the brand's own art) or use an art-direction skill when one is installed (huige-art-motion).
 
 For each direction write the lines below and render **one real key frame** at full resolution (not a
 description, not a wireframe; `om still directions/a.html` makes the PNG):

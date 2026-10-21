@@ -2,11 +2,9 @@
 
 2026-10-09提炼。这里的历史效果均来自源skill的项目记录，本轮没有重新观看其全部历史成片，也没有独立重算旧记录中的指标。因此只把它们作为有出处的方法起点，不写成普遍效果保证。
 
-- huashu-art-motion，`references/07-正面经验.md`：对象用全片时间、材料驱动转场、随机确定性、静态缓存、词级cue、按语法解读静止。`06-口播驱动的艺术短片.md`：先音轨后画面、世界画布、按内容取景、留白必须存在于口播。`11-进化协议.md`：问题优先于分数、经验从文字沉到工具。
-- huashu-video-pipeline，`references/21-动画段.md`与`scripts/anim_clip.py`：按解释任务选动画、以成片时间为唯一接口、词级锚点、变更后的同步核验。SKILL.md的返工规则：继承上一版补丁、按变化范围验证。
-- huashu-design，`references/storyboard-basics.md`：先关键帧、后编舞，构图与风格分离。`camera-language.md`：相机与对象分层、有目标的取景。`animation-best-practices.md`：运动层次与节奏对比；具体缓动和节奏比例保留为场景配方，不升级为公理。
-
-公开项目入口：[art-motion](https://github.com/alchaincyf/huashu-art-motion)、[design](https://github.com/alchaincyf/huashu-design)。本轮源文件的精确路径、SHA和私有冲突记录单独保存在项目维护资料中，不随skill分发。
+- huige-art-motion，`references/07-正面经验.md`：对象用全片时间、材料驱动转场、随机确定性、静态缓存、词级cue、按语法解读静止。`06-口播驱动的艺术短片.md`：先音轨后画面、世界画布、按内容取景、留白必须存在于口播。问题优先于分数、经验从文字沉到工具。
+- 上游视频管线（MIT）：按解释任务选动画、以成片时间为唯一接口、词级锚点、变更后的同步核验；返工规则：继承上一版补丁、按变化范围验证。
+- huige-design，`references/storyboard-basics.md`：先关键帧、后编舞，构图与风格分离。`camera-language.md`：相机与对象分层、有目标的取景。`animation-best-practices.md`：运动层次与节奏对比；具体缓动和节奏比例保留为场景配方，不升级为公理。
 
 ## 本轮做出的归纳
 

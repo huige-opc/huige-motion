@@ -103,7 +103,7 @@ Older project-specific notes (3D city film, web-product promo) are kept by the m
 ## 2026-10-09 | Rules with exceptions
 
 - Finding: "everything must keep moving" and "always add sound effects" both have good counter-examples (a reading hold, a silent loop). Turn absolute rules into conditions on the task: what is being explained, what is being delivered, what the user chose.
-- Evidence: huashu-art-motion #07 "stillness is not a freeze"; differing audio defaults in huashu-design and the video pipeline.
+- Evidence: huige-art-motion #07 "stillness is not a freeze"; differing audio defaults across huige-design and the video pipeline.
 - Confidence: cross-checked in documents; not yet shown to improve films on new topics.
 
 ## 2026-10-09 | Smooth is not the same as interesting
@@ -180,7 +180,7 @@ Older project-specific notes (3D city film, web-product promo) are kept by the m
 
 - Finding: three agents, three products, README-only material, nine key frames: six near-black with one warm accent and bone-white type, all three directions of one product in that pattern; each card claimed to differ from the house style because the house style was described by names (Geist, lime). The user disliked all of them.
 - Do: colour.md (find colours before choosing, a system with roles and shares, three colour strategies, the house look as patterns) and `om swatch`, which warns when every ground is dark or every accent warm.
-- Evidence: validation run 2026-10-17 (nuwa, darwin, huashu-design direction cards); the user's words are in the local experience.
+- Evidence: validation run 2026-10-17 (nuwa, darwin, huige-design direction cards); the user's words are in the local experience.
 - Confidence: verified (nine frames from three independent agents).
 
 ## 2026-10-17 | A pull-back through nested UI still read as a slideshow

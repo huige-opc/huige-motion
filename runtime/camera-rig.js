@@ -1,4 +1,4 @@
-/* Huashu Motion camera rig. Absolute-time sampling, no renderer dependency. MIT. */
+/* huige-motion camera rig. Absolute-time sampling, no renderer dependency. MIT. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.OpenMotionCamera=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
  'use strict';
  const clamp=x=>Math.max(0,Math.min(1,x));

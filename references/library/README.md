@@ -8,7 +8,7 @@ fits it instead of the house style everyone else's agent produces.
 | **Format** | What kind of film? (length, frame, structure, ending) | [formats.md](formats.md) |
 | **Language** | How do things move, and what does that say? | [languages/](languages/) — table below |
 | **Techniques** | Which moves, each with a meaning and a recipe | [techniques.md](techniques.md) |
-| **Look & sound** | Palette, type, material, music, hits | each language file + [../sound.md](../sound.md); art styles via huashu-art-motion |
+| **Look & sound** | Palette, type, material, music, hits | each language file + [../sound.md](../sound.md); art styles via huige-art-motion |
 
 The [director](../director.md) picks them; [product-fit.md](product-fit.md) shows what real products
 used, with evidence.
@@ -35,7 +35,7 @@ used, with evidence.
 | [photo-led](languages/photo-led.md) | The real world | travel, food, fashion, ads | `blank` |
 | [showreel](languages/showreel.md) | Range and mastery | capability showcases, "made with X" | `blank` |
 | [retro-digital](languages/retro-digital.md) | Culture, edge | dev culture, games, CLI tools; mostly a seasoning on kinetic-type or showreel | `blank` |
-| [art-styles](languages/art-styles.md) | Culture, delight | showcases, the unexpected direction | huashu-art-motion |
+| [art-styles](languages/art-styles.md) | Culture, delight | showcases, the unexpected direction | huige-art-motion |
 | [talking-head](languages/talking-head.md) | A real person behind it | founders, creators | `talking-head` |
 
 ## Choosing: message shape × personality

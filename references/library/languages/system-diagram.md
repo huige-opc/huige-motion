@@ -28,8 +28,8 @@ Soft electronic bed; a tick per packet arrival at key nodes; a resolve when the 
 
 ## Build
 
-SVG paths for channels; packets as positions along `getPointAtLength` driven by time; huashu-flow
-style light paper look works well. Keep the system legible at 1× before any zoom.
+SVG paths for channels; packets as positions along `getPointAtLength` driven by time; a light-paper
+look works well. Keep the system legible at 1× before any zoom.
 
 ## Breaks when
 

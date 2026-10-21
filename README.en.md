@@ -54,5 +54,5 @@ The full workflow is in [SKILL.md](SKILL.md).
 ## License
 
 Code and docs: MIT, see [LICENSE](LICENSE). Based on an MIT-licensed upstream project; the original copyright is in LICENSE.
-Bundled GSAP, fonts, the huashu-art-motion showcase and the bean character keep their own
+Bundled GSAP, fonts, the huige-art-motion showcase and the bean character keep their own
 licenses; see [THIRD_PARTY.md](THIRD_PARTY.md).

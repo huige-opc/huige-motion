@@ -1,5 +1,5 @@
 // huige-motion clip runtime: one parameterized explainer animation (a JSON spec) drawn on a canvas and driven
-// by the film's timeline. Adapted from huashu-art-motion scripts/engine/clip.js (MIT) — see NOTICE.md.
+// by the film's timeline. Adapted from huige-art-motion scripts/engine/clip.js (MIT) — see NOTICE.md.
 //
 // index.html loads, in order: gsap, vendor/om.js, vendor/clip/lib/*.js, vendor/clip/cues.js, this file, one
 // grammar file (vendor/clip/grammars/<grammar>.js); then

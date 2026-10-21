@@ -1,6 +1,5 @@
-# clip runtime (from huashu-art-motion)
+# clip runtime (from huige-art-motion, MIT)
 
-Source: https://github.com/alchaincyf/huashu-art-motion — `scripts/engine/`, commit `57d6760` (2026-10-08).
 License: MIT, see `LICENSE` in this folder. The fonts the grammars draw with are not here: each template copies
 the ones it needs from the repository's `fonts/` into the project's `assets/fonts/` (SIL OFL 1.1, see
 `fonts/LICENSES.md` and `fonts/OFL.txt`, which are copied along).

@@ -54,4 +54,4 @@ om render my-film               # 导出到 my-film/out/
 ## 许可
 
 代码与文档：MIT，见 [LICENSE](LICENSE)。本项目基于 MIT 许可的上游项目修改，原始版权见 LICENSE。
-随附的 GSAP、字体、huashu-art-motion 样片和豆子角色保留各自许可，见 [THIRD_PARTY.md](THIRD_PARTY.md)。
+随附的 GSAP、字体、huige-art-motion 样片和豆子角色保留各自许可，见 [THIRD_PARTY.md](THIRD_PARTY.md)。

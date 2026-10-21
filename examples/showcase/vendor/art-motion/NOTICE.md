@@ -1,6 +1,5 @@
-# art-motion engine (vendored)
+# art-motion engine (from huige-art-motion, MIT)
 
-Source: https://github.com/alchaincyf/huashu-art-motion — `scripts/engine/`, commit `57d6760` (2026-10-08).
 License: MIT, see `LICENSE` in this folder. Fonts in `../../assets/fonts/` are SIL OFL 1.1, see `../../assets/fonts/LICENSES.md` and `OFL.txt`.
 
 Only what this film draws with is copied: `engine.js`, `transitions.js`, `eras.js`, `scenes/index.js`, the 15 scenes listed in `eras.js`, `lib/util.js paint.js brush.js render.js post.js rig.js kit.js`, and 22 of the font files (the upstream `LICENSES.md` still lists the full set).

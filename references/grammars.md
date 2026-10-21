@@ -1,6 +1,6 @@
 # Grammar templates
 
-Eight explainer "grammars" from huashu-art-motion, each a template: `om templates` lists them, `om new <dir> --template <id>` starts one. Each is a whole film drawn on one canvas from a JSON spec, so you change it by editing variables and cues rather than writing animation code. Use one when the narration fits the grammar; build from `blank` when it doesn't.
+Eight explainer "grammars" from huige-art-motion (MIT), each a template: `om templates` lists them, `om new <dir> --template <id>` starts one. Each is a whole film drawn on one canvas from a JSON spec, so you change it by editing variables and cues rather than writing animation code. Use one when the narration fits the grammar; build from `blank` when it doesn't.
 
 | id | Good for | Not for |
 |---|---|---|
